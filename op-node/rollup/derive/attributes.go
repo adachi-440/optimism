@@ -105,6 +105,11 @@ func (ba *FetchingAttributesBuilder) PreparePayloadAttributes(ctx context.Contex
 		return nil, NewCriticalError(fmt.Errorf("failed to create l1InfoTx: %w", err))
 	}
 
+	// l1BurnTx, err := L1BurnDepositBytes(seqNumber, l1Info, sysConfig)
+	// if err != nil {
+	// 				return nil, NewCriticalError(fmt.Errorf("failed to create l1InfoTx: %w", err))
+	// }
+
 	txs := make([]hexutil.Bytes, 0, 1+len(depositTxs))
 	txs = append(txs, l1InfoTx)
 	txs = append(txs, depositTxs...)
